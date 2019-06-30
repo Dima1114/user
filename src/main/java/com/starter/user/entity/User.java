@@ -1,17 +1,7 @@
 package com.starter.user.entity;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
 import java.util.Set;
 
-@Entity
-@Table(name = "users")
 public class User extends BaseEntity{
 
     private String username;
@@ -20,9 +10,6 @@ public class User extends BaseEntity{
     private boolean isEnabled = false;
     private String refreshToken;
 
-    @Enumerated(EnumType.STRING)
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name="User_Role", joinColumns=@JoinColumn(name="Usr_Id"))
     private Set<Role> roles;
 
     public String getUsername() {
